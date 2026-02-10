@@ -205,7 +205,7 @@ nav a:hover::after {
     height: 100vh;
     min-height: 600px;
     background: url('https://i.ibb.co/bRg5brjN/cabana-Grama.jpg') center/cover no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; /* parallax doar pe desktop */
     display: flex;
     align-items: center;
     position: relative;
@@ -225,6 +225,13 @@ nav a:hover::after {
     max-width: 950px;
     margin-left: 6%;
     animation: fadeInUp 1s ease;
+}
+
+/* ========== MEDIA QUERY FIX HERO BACKGROUND MOBILE ========== */
+@media (max-width: 1024px) {
+    .hero {
+        background-attachment: scroll !important;
+    }
 }
 
 @keyframes fadeInUp {
