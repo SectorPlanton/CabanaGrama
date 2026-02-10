@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cabana Grama — Lacul Cinciș</title>
+<meta name="description" content="Cabana premium pe malul Lacului Cinciș - Jacuzzi, saună, ponton privat. Rezervă acum experiența ta de relaxare exclusivistă!">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --accent: #c7a46b;
+    --accent-dark: #a68855;
+    --dark: #0f172a;
+    --soft: #1e293b;
+    --soft-light: #334155;
+    --text: #e5e7eb;
+    --text-muted: #94a3b8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ========== HEADER & NAVIGATION ========== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 6%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 12px 6%;
+    background: rgba(15, 23, 42, 0.98);
+}
+
+.logo {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    height: 55px;
+    transition: height 0.3s ease;
+}
+
+header.scrolled .logo img {
+    height: 48px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 10000;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 100px 40px 40px;
+    transition: right 0.4s ease;
+    z-index: 9998;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    color: var(--accent);
+    padding-left: 10px;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    background: url('https://i.ibb.co/bRg5brjN/cabana-Grama.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.5));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 950px;
+    margin-left: 6%;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5.5vw, 68px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    max-width: 650px;
+    font-size: clamp(16px, 2vw, 19px);
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #0f172a;
+    box-shadow: 0 4px 15px rgba(199, 164, 107, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(199, 164, 107, 0.4);
+}
+
+.btn-outline {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: #0f172a;
+    transform: translateY(-2px);
+}
+
+/* ========== SECTIONS ========== */
+section {
+    padding: 100px 6%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.section-title p {
+    color: var(--text-muted);
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+.grid {
+    display: grid;
+    gap: 30px;
+}
+
+/* ========== ABOUT SECTION ========== */
+.about {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text {
+    animation: fadeInLeft 0.8s ease;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.about-text p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.about img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease;
+}
+
+.about img:hover {
+    transform: scale(1.02);
+}
+
+/* ========== FACILITIES SECTION ========== */
+#facilities {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.8));
+}
+
+.facilities {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+    background: var(--soft);
+    padding: 30px 25px;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(199, 164, 107, 0.2);
+    border-color: var(--accent);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+/* ========== ROOMS SECTION ========== */
+.rooms {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.room-card {
+    background: var(--soft);
+    padding: 35px 30px;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.room-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+.room-card p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+}
+
+/* ========== GALLERY SECTION ========== */
+#gallery {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.8));
+}
+
+.gallery {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item::after {
+    content: '🔍';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: var(--accent);
+    color: #0f172a;
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.lightbox-nav:hover {
+    background: var(--accent);
+    color: #0f172a;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* ========== CONTACT SECTION ========== */
+#contact {
+    text-align: center;
+}
+
+.contact-info {
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+    font-size: 17px;
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: var(--accent);
+}
+
+.contact-item a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.social-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+}
+
+.facebook-btn {
+    background: #1877F2;
+    color: white;
+}
+
+.instagram-btn {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+    color: white;
+}
+
+.booking-btn {
+    background: #003580;
+    color: white;
+}
+
+.map-container {
+    margin-top: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    height: 450px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: #020617;
+    text-align: center;
+    padding: 30px 6%;
+    color: #64748b;
+    font-size: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ========== FLOATING WHATSAPP ========== */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 35px rgba(37, 211, 102, 0.7);
+    }
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
+}
+
+/* ========== SCROLL TO TOP ========== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: #0f172a;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(199, 164, 107, 0.3);
+    z-index: 9998;
+    transition: all 0.3s ease;
+}
+
+.scroll-to-top.active {
+    display: flex;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(199, 164, 107, 0.5);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 900px) {
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    section {
+        padding: 70px 5%;
+    }
+
+    .about {
+        gap: 30px;
+    }
+
+    .grid {
+        gap: 20px;
+    }
+
+    .facilities {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .lightbox-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .map-container {
+        height: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 14px 5%;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .facilities, .rooms, .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .social-buttons {
+        gap: 15px;
+    }
+
+    .social-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+    }
+
+    .floating-whatsapp {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .scroll-to-top {
+        bottom: 90px;
+        right: 20px;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+}
+
+/* ========== ACCESSIBILITY ========== */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+a:focus,
+button:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ========== LOADING ANIMATION ========== */
+.loading {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+    <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <img src="https://i.ibb.co/3y0PLsxC/transparent-logo.png" alt="Cabana Grama Logo">
+    </div>
+    <nav>
+        <a href="#about">Despre</a>
+        <a href="#facilities">Facilități</a>
+        <a href="#rooms">Camere</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#about">Despre</a>
+    <a href="#facilities">Facilități</a>
+    <a href="#rooms">Camere</a>
+    <a href="#gallery">Galerie</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Cabana Grama — Refugiul Premium pe Malul Lacului Cinciș</h1>
+        <p>O experiență exclusivistă de relaxare în natură cu jacuzzi exterior încălzit, saună, ponton privat și confort premium pentru familii și grupuri.</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-calendar-check"></i> Rezervă acum
+            </a>
+            <a href="https://wa.me/40XXXXXXXXX" target="_blank" class="btn btn-outline">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="loading">
+    <div class="section-title">
+        <h2>Despre Cabana Grama</h2>
+        <p>Lux, natură și liniște absolută</p>
+    </div>
+    <div class="grid about">
+        <div class="about-text">
+            <p>Cabana Grama este o cabană premium situată direct pe malul pitoresc al Lacului Cinciș, ideală pentru relaxare, vacanțe private, grupuri și escapade romantice de neuitat.</p>
+            <p>Capacitate mare, spații moderne și elegante, priveliște spectaculoasă asupra lacului, jacuzzi exterior încălzit, saună premium, ponton privat și activități diverse pe lac. Experimentați confortul și luxul într-un cadru natural extraordinar.</p>
+        </div>
+        <img src="https://i.ibb.co/7t3jLSdk/cg1.jpg" alt="Cabana Grama - Interior Premium" loading="lazy">
+    </div>
+</section>
+
+<!-- Facilities Section -->
+<section id="facilities" class="loading">
+    <div class="section-title">
+        <h2>Facilități Premium</h2>
+        <p>Tot ce aveți nevoie pentru o vacanță perfectă</p>
+    </div>
+    <div class="grid facilities">
+        <div class="card"><i class="fas fa-hot-tub"></i><br>Jacuzzi exterior încălzit</div>
+        <div class="card"><i class="fas fa-spa"></i><br>Saună & Spa</div>
+        <div class="card"><i class="fas fa-ship"></i><br>Ponton privat pe lac</div>
+        <div class="card"><i class="fas fa-water"></i><br>Barcă & Paddle Board</div>
+        <div class="card"><i class="fas fa-utensils"></i><br>Bucătărie complet utilată</div>
+        <div class="card"><i class="fas fa-wifi"></i><br>WiFi & Smart TV</div>
+        <div class="card"><i class="fas fa-fire"></i><br>Grătar & Terasă mare</div>
+        <div class="card"><i class="fas fa-parking"></i><br>Parcare privată gratuită</div>
+    </div>
+</section>
+
+<!-- Rooms Section -->
+<section id="rooms" class="loading">
+    <div class="section-title">
+        <h2>Camere & Capacitate</h2>
+        <p>Spațiu generos pentru toți oaspeții</p>
+    </div>
+    <div class="grid rooms">
+        <div class="room-card">
+            <h3><i class="fas fa-bed"></i> 4 Dormitoare</h3>
+            <p>Camere matrimoniale și camere familiale moderne, amenajate cu gust și atenție la detalii pentru confortul maxim.</p>
+        </div>
+        <div class="room-card">
+            <h3><i class="fas fa-users"></i> 10+ Paturi</h3>
+            <p>Capacitate ideală pentru grupuri mari și familii extinse care doresc să petreacă timp împreună în confort.</p>
+        </div>
+        <div class="room-card">
+            <h3><i class="fas fa-bath"></i> 5 Băi</h3>
+            <p>Confort și intimitate pentru fiecare oaspete, cu băi moderne și complet dotate.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="loading">
+    <div class="section-title">
+        <h2>Galerie Foto</h2>
+        <p>Descoperiți frumusețea cabanei noastre</p>
+    </div>
+    <div class="grid gallery" id="galleryGrid">
+        <div class="gallery-item" data-index="0">
+            <img src="https://i.ibb.co/jPdz0Fvn/cg2.jpg" alt="Cabana Grama - Vedere lac" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="1">
+            <img src="https://i.ibb.co/K83NpSq/cg3.jpg" alt="Cabana Grama - Exterior" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="2">
+            <img src="https://i.ibb.co/7tqbMQcR/cg4.jpg" alt="Cabana Grama - Jacuzzi" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="3">
+            <img src="https://i.ibb.co/Xk3fNGdQ/cg5.jpg" alt="Cabana Grama - Saună" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="4">
+            <img src="https://i.ibb.co/SDXD0PxF/cg6.jpg" alt="Cabana Grama - Living" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="5">
+            <img src="https://i.ibb.co/RGtFbmkc/cg7.jpg" alt="Cabana Grama - Dormitor" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="6">
+            <img src="https://i.ibb.co/NgR53kKK/cg8.jpg" alt="Cabana Grama - Bucătărie" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="7">
+            <img src="https://i.ibb.co/Y7FK0Dvf/cg9.jpg" alt="Cabana Grama - Terasă" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="8">
+            <img src="https://i.ibb.co/27gtGdQB/cg10.jpg" alt="Cabana Grama - Ponton" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="9">
+            <img src="https://i.ibb.co/k2TJ65pw/cg11.jpg" alt="Cabana Grama - Vedere noapte" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="10">
+            <img src="https://i.ibb.co/Lh2X7xyb/cg12.jpg" alt="Cabana Grama - Interior lux" loading="lazy">
+        </div>
+        <div class="gallery-item" data-index="11">
+            <img src="https://i.ibb.co/Ndn6WCm4/cg13.jpg" alt="Cabana Grama - Peisaj" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <span class="lightbox-close" id="closeLightbox">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="prevImage">&#10094;</span>
+        <img src="" alt="Gallery Image" id="lightboxImage">
+        <span class="lightbox-nav lightbox-next" id="nextImage">&#10095;</span>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<section id="contact" class="loading">
+    <div class="section-title">
+        <h2>Rezervări & Contact</h2>
+        <p>Suntem aici pentru dumneavoastră</p>
+    </div>
+    <div class="contact-info">
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Strada Lacului 187, Cinciș, Hunedoara</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <a href="tel:+40XXXXXXXXX">+40 XXX XXX XXX</a>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:contact@cabanagrama.ro">contact@cabanagrama.ro</a>
+        </div>
+        
+        <p style="margin-top: 30px; color: var(--text-muted); font-size: 16px;">
+            Rezervări rapide prin telefon, WhatsApp sau platformele noastre online
+        </p>
+
+        <div class="social-buttons">
+            <a href="https://wa.me/40XXXXXXXXX" target="_blank" class="social-btn whatsapp-btn" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://facebook.com/cabanagrama" target="_blank" class="social-btn facebook-btn" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/cabanagrama" target="_blank" class="social-btn instagram-btn" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://booking.com" target="_blank" class="social-btn booking-btn" title="Booking.com">
+                <i class="fas fa-hotel"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2787.0473722740226!2d22.86359517671222!3d45.69002131834248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474e611069d98617%3A0x755eae878dd917a!2sStrada%20Lacului%20187%2C%20337466%20Cinci%C8%99-Cerna!5e0!3m2!1sro!2sro!4v1770739621728!5m2!1sro!2sro" 
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Locația Cabana Grama pe Google Maps">
+        </iframe>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 Cabana Grama — Toate drepturile rezervate</p>
+    <p style="margin-top: 10px; font-size: 13px;">Dezvoltat cu <i class="fas fa-heart" style="color: var(--accent);"></i> pentru oaspeții noștri</p>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a class="floating-whatsapp" href="https://wa.me/40XXXXXXXXX" target="_blank" title="Contactează-ne pe WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Scroll to Top Button -->
+<div class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- JavaScript -->
+<script>
+// Mobile Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Gallery Lightbox
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const closeLightbox = document.getElementById('closeLightbox');
+const prevImage = document.getElementById('prevImage');
+const nextImage = document.getElementById('nextImage');
+
+let currentImageIndex = 0;
+const galleryImages = Array.from(galleryItems).map(item => item.querySelector('img').src);
+
+galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        currentImageIndex = index;
+        openLightbox();
+    });
+});
+
+function openLightbox() {
+    lightbox.classList.add('active');
+    lightboxImage.src = galleryImages[currentImageIndex];
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightboxFunc() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+closeLightbox.addEventListener('click', closeLightboxFunc);
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightboxFunc();
+    }
+});
+
+prevImage.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImage.src = galleryImages[currentImageIndex];
+});
+
+nextImage.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    lightboxImage.src = galleryImages[currentImageIndex];
+});
+
+// Keyboard navigation for lightbox
+document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    
+    if (e.key === 'Escape') {
+        closeLightboxFunc();
+    } else if (e.key === 'ArrowLeft') {
+        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        lightboxImage.src = galleryImages[currentImageIndex];
+    } else if (e.key === 'ArrowRight') {
+        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+        lightboxImage.src = galleryImages[currentImageIndex];
+    }
+});
+
+// Scroll to Top Button
+const scrollToTop = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        scrollToTop.classList.add('active');
+    } else {
+        scrollToTop.classList.remove('active');
+    }
+});
+
+scrollToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.loading').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(el);
+});
+
+// Prevent right-click on images (optional - for protection)
+// document.querySelectorAll('img').forEach(img => {
+//     img.addEventListener('contextmenu', e => e.preventDefault());
+// });
+</script>
+
+</body>
+</html>
